@@ -22,6 +22,10 @@ class Apartment extends Model
         "price", "bedrooms", "bathrooms", "storeys", "garages"
     ];
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
+     */
     public function getAll(Request $request){
         $query = $this->query();
 

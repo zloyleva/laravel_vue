@@ -10,7 +10,7 @@ trait Search
 
     /**
      * @param Builder $query
-     * @param string|null $search
+     * @param array|null $search
      * @param array|null $fields
      */
     public function addSearch(Builder $query, array $search = null, array $fields=null)
