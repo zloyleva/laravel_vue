@@ -16,7 +16,7 @@ class ApartmentsTableSeeder extends Seeder
         $file = storage_path('app/public/property-data.csv');
         $contents = file($file);
 
-        $csv = array_slice(array_map('str_getcsv', $contents),1);
+        $csv = array_slice(array_map([$this,'parceCSVSrting'], $contents),1);
 
         foreach($csv as $item){
             factory(Apartment::class)->create([
@@ -26,7 +26,17 @@ class ApartmentsTableSeeder extends Seeder
                 'bathrooms' => $item[3],
                 'storeys' => $item[4],
                 'garages' => $item[5],
+                'image' => $item[6],
+                'description' => $item[7],
             ]);
         }
+    }
+
+    /**
+     * @param $string
+     * @return array
+     */
+    private function parceCSVSrting($string){
+        return str_getcsv($string, ";");
     }
 }

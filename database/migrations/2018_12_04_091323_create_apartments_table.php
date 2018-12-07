@@ -22,6 +22,8 @@ class CreateApartmentsTable extends Migration
             $table->integer("bathrooms");
             $table->integer("storeys");
             $table->integer("garages");
+            $table->string("image")->nullable();
+            $table->text("description")->nullable();
 
             $table->timestamps();
         });

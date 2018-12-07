@@ -9,5 +9,7 @@ $factory->define(App\Models\Apartment::class, function (Faker $faker) {
         'bathrooms' => $faker->numberBetween($min = 1, $max = 6),
         'storeys' => $faker->numberBetween($min = 1, $max = 3),
         'garages' => $faker->numberBetween($min = 1, $max = 3),
+        'image' => $faker->imageUrl(),
+        'description' => $faker->text($maxNbChars = 200),
     ];
 });
