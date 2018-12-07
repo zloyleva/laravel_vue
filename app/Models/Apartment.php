@@ -29,9 +29,7 @@ class Apartment extends Model
     public function getAll(Request $request){
         $query = $this->query();
 
-        if(isset($request->search)){
-            $this->addSearch($query, $request->search, $this->searchable);
-        }
+        $this->addSearch($query, $request, $this->searchable);
 
         return $query->get();
     }

@@ -10,14 +10,16 @@ trait Search
 
     /**
      * @param Builder $query
-     * @param array|null $search
+     * @param $request
      * @param array|null $fields
      */
-    public function addSearch(Builder $query, array $search = null, array $fields=null)
+    public function addSearch(Builder $query, $request, array $fields=null)
     {
-        if (!$search || !$fields) {
+        if (!isset($request->search) || !$fields){
             return;
         }
+
+        $search = $request->search;
 
         $query->where(function ($query) use ($fields,$search) {
             foreach ($search as $key => $value) {
