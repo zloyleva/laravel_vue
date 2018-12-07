@@ -1,12 +1,14 @@
-FROM node:6
+FROM node:8
 
 WORKDIR /app
 
 COPY package.json .
-#RUN npm install --quiet
-#COPY . .
+RUN npm install
+COPY . .
 
-EXPOSE 4200
+EXPOSE 3000
+
+CMD [ "npm", "start" ]
 
 CMD tail -f /etc/hosts
 
